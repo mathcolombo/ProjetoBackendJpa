@@ -21,7 +21,7 @@ public class Departamento {
     @Column(length = 150)
     private String nome;
 
-    @OneToMany(mappedBy = "departamentoId")
+    @OneToMany(mappedBy = "departamento")
     private List<Funcionario> funcionarios;
 
     public UUID getId() {

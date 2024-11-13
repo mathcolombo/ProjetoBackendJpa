@@ -3,8 +3,6 @@ package com.unisales.projetobackend.models;
 import java.sql.Date;
 import java.util.UUID;
 
-import org.hibernate.annotations.ManyToAny;
-
 import com.unisales.projetobackend.utils.Enumeradores.AtivoInativoEnum;
 
 import jakarta.persistence.Column;
@@ -14,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -35,8 +34,8 @@ public class Funcionario {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
  
-    @ManyToAny
-    @JoinColumn(name = "departamento_id")
+    @ManyToOne
+    @JoinColumn(name = "departamentoId")
     private Departamento departamento;
 
     @Temporal(TemporalType.DATE)

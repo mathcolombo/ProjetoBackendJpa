@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamentos</title>
+</head>
+<body>
+    <a th:href="@{/}">Início</a> | <a th:href="@{/departamentos/cadastro}">Cadastro de Departamentos</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" d : ${listaDepartamentos}">
+                <td th:text="${d.id}"></td>
+                <td th:text="${d.nome}"></td>
+                <td>
+                    <a th:href="@{'/departamentos/abre/' + ${d.id}}">Ver</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
