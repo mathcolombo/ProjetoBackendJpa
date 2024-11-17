@@ -1,7 +1,11 @@
 package com.unisales.projetobackend.models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.UUID;
+
+import org.springframework.cglib.core.Local;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.unisales.projetobackend.utils.Enumeradores.AtivoInativoEnum;
 
@@ -14,8 +18,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "funcionario")
@@ -31,15 +33,15 @@ public class Funcionario {
     @Column(unique = true, length = 12)
     private String cpf;
  
-    @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataNascimento;
  
     @ManyToOne
     @JoinColumn(name = "departamentoId")
     private Departamento departamento;
 
-    @Temporal(TemporalType.DATE)
-    private Date dataAdmissao;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataAdmissao;
 
     @Enumerated
     private AtivoInativoEnum status;
@@ -76,11 +78,11 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -92,11 +94,11 @@ public class Funcionario {
         this.departamento = departamento;
     }
 
-    public Date getDataAdmissao() {
+    public LocalDate getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(Date dataAdmissao) {
+    public void setDataAdmissao(LocalDate dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
 
