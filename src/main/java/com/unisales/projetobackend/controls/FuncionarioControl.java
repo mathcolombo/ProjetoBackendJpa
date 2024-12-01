@@ -72,6 +72,10 @@ public class FuncionarioControl {
         if(funcionario == null)
             return "redirect:/funcionarios";
 
+        // Recupera todos os departamentos para popular o campo select no formulário de atualização
+        List<Departamento> departamentos = departamentoService.listar();
+        // Adiciona a lista de departamentos ao modelo
+        model.addAttribute("departamentos", departamentos);
         // Atribui o funcionário ao modelo para exibir no template
         model.addAttribute("funcionario", funcionario);
         // Retorna o template para exibir os detalhes do funcionário
